@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+    margin: 0;
+}
+.navigation {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: #212532;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transition-delay: 0.8s;
+}
+.navigation:hover,
+.navigation:focus-within {
+    width: 200px;
+    height: 200px;
+    transition-delay: 0s;
+}
+.navigation span {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(calc(var(--x) * 0px), calc(var(--y) * 0px));
+    transition: 0.5s;
+    transition-delay: calc(var(--i) * 0.1s);
+    outline: none; 
+}
+.navigation:hover span,
+.navigation:focus-within span {
+    transform: translate(calc(var(--x) * 80px), calc(var(--y) * 80px));
+}
+.navigation span:focus {
+    animation: colorChange 1s forwards;
+}
+@keyframes colorChange {
+    0% {
+        background-color: #fff;
+    }
+    100% {
+        background-color: red; 
+    }
+}
+.navigation ion-icon {
+    font-size: 24px;
+    color: #212532;
+    transition: color 1s;
+}
+.navigation span:focus ion-icon {
+    color: #fff; 
+}
